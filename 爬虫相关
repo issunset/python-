@@ -1,0 +1,2 @@
+----爬虫相关----
+1. quote() 转码非英文字符串为url链接中的编码格式 import urllib.parse\\ chengdu = urllib.parse.quote("成都")\\ print(chengdu)\\输入类型str\\输出结果%E6%88%90%E9%83%BD 输出类型str
