@@ -1,2 +1,14 @@
 ----爬虫相关----
 1. quote() 转码非英文字符串为url链接中的编码格式 import urllib.parse\\ chengdu = urllib.parse.quote("成都")\\ print(chengdu)\\输入类型str\\输出结果%E6%88%90%E9%83%BD 输出类型str
+2. .stirng/.text/.content:
+soup='''<span class="price">
+价格是
+<em>￥</em>
+140
+<a>起</a>
+</span>'''
+soup.string结果为None 因为当前定位的节点span下 有em和a两个子节点 还有"价格是"，"140"这两个子内容 string函数不知道返还哪个 所以为空
+soup.text 结果为"价格是￥140起" 因为.text函数会把当前节点下所有的内容和当前节点的子节点下所有的内容都返回
+soup.contents 结果是["价格是",<em>￥</em>,"140","<a>起</a>"] 因为content函数会返回当前节点下的所有子节点 并且把他们放在一个列表中返回
+  soup.contents[2] 结果是"140"
+  soup.contents[1].string 结果是"￥"
